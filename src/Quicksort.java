@@ -1,7 +1,10 @@
+import java.util.Random;
+
 
 public class Quicksort {
 	
 	private int list[];
+	private Random random = new Random();
 	
 	Quicksort(int [] list)
 	{
@@ -29,14 +32,26 @@ public class Quicksort {
 	{
 		int left = start;
 		int right = end-1;
+		/*
+		 * choose random pivot element
+		 */
+		if(start< end)
+		{
+			int index = random.nextInt(end-start)+start;
+			int tmp= this.list[index];
+			this.list[index] = list[end];
+			list[end] = list[index];
+			
+		}
 		int pivot = this.list[end];
+		
 		
 		do{
 			//Search on the left side a element that is bigger than the pivot element
 			while( list[left] <= pivot && left< end)left++;
 			
 			
-			//Search on the left side a element that is smaler than the pivot element
+			//Search on the right side a element that is smaller than the pivot element
 			while(list[right]>= pivot && right > start)right--;
 			
 			if(left < right)
