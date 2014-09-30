@@ -11,6 +11,13 @@ public class SortSimulator {
 		Quicksort qs = new Quicksort(unsortedArray);
 		SortSimulator.printArray(qs.sort());
 		
+		SortSimulator.randomizeArray(unsortedArray);
+		System.out.println("randomized..");
+		
+		BubbleSort bubbleSort = new BubbleSort(unsortedArray);
+		SortSimulator.printArray(bubbleSort.sort());
+		
+		
 	}
 	public static void randomizeArray(int []array)
 	{
