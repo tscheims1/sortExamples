@@ -4,7 +4,15 @@ import java.util.Random;
 public class SortSimulator {
 	public static void main(String[] args)
 	{
-		int unsortedArray[] = new int[50];
+		int unsortedArray[] = new int[10];
+		
+		SortSimulator.randomizeArray(unsortedArray);
+		System.out.println("randomized..");
+		HeapSort heapSort = new HeapSort(unsortedArray);
+		heapSort.sort();
+		SortSimulator.printArray(heapSort.sort());
+		
+		
 		SortSimulator.randomizeArray(unsortedArray);
 		System.out.println("randomized..");
 		
@@ -16,6 +24,8 @@ public class SortSimulator {
 		
 		BubbleSort bubbleSort = new BubbleSort(unsortedArray);
 		SortSimulator.printArray(bubbleSort.sort());
+		
+		
 		
 		
 	}
