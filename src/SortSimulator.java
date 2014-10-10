@@ -4,7 +4,7 @@ import java.util.Random;
 public class SortSimulator {
 	public static void main(String[] args)
 	{
-		int unsortedArray[] = new int[10];
+		int unsortedArray[] = new int[100];
 		
 		SortSimulator.randomizeArray(unsortedArray);
 		System.out.println("randomized..");
@@ -52,10 +52,13 @@ public class SortSimulator {
 	public static boolean isSorted(int []arr)
 	{
 		if(arr.length ==0)return true;
-		int startValue = arr[0];
-		for(int i =1; i < arr.length;i++)
+		
+		for(int j = arr[0]; j < arr.length;j++)
 		{
-			if(arr[i]<startValue)return false;
+			for(int i =j+1; i < arr.length;i++)
+			{	
+				if(arr[i]<arr[j])return false;
+			}
 		}
 		return true;
 	}
