@@ -11,12 +11,12 @@ public class HeapSort {
 		for(int i = 0; i < array.length;i++)
 		{
 			upHeap(i);
-		}/*
+		}
 		for(int i = array.length-1; i >= 0;i--)
 		{
 			swap(0,i);
 			downHeap(0,i);
-		}*/
+		}
 		return array;
 	}
 	private void upHeap(int i)
@@ -26,6 +26,7 @@ public class HeapSort {
 		{
 			parent = (i-1)/2;
 			if(array[parent] < array[i])swap(parent,i);
+			else break;
 			i = parent;
 			
 		}
@@ -36,23 +37,22 @@ public class HeapSort {
 		int leftChild = i*2+1;
 		int rightChild = i*2+2;
 		
-		/*while(leftChild > length)
+		while(leftChild < length)
 		{
+			int cand  = leftChild;
+			if(rightChild < length && array[leftChild] < array[rightChild])
+			{
+				cand = rightChild;
+			}
+			if(array[cand] > array[i])
+				swap(cand,i);
+			else
+				break;
 			
-		}*/
-		
-		if(rightChild <= length && array[rightChild] <= array[leftChild] && array[leftChild]> array[i])
-		{
-			swap(leftChild,i);
-			downHeap(leftChild,length);
+			i = cand;
+			leftChild = i*2+1;
+			rightChild = i*2+2;
 		}
-		if(leftChild <= length && array[rightChild] > array[leftChild] && array[rightChild] > array[i])
-		{
-			swap(rightChild,i);
-			downHeap(rightChild,length);
-		}
-		
-		
 	}
 	private void swap(int a,int b)
 	{
